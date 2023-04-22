@@ -15,7 +15,6 @@ const config = {
 		// adapter: adapter()
 
 		// adapter: firebaseAdapter()
-		target: '#svelte',
 		adapter: adapter()
 	}
 };
