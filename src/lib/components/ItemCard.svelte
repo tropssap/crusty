@@ -24,6 +24,7 @@
 		border-radius: 5px;
 		padding: 1rem;
 		max-width: 300px;
+		max-height: 300px;
 	}
 
 	.item-image {

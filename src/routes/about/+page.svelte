@@ -20,6 +20,14 @@
 	</div>
 </main>
 
+<svelte:head>
+	<title>About - Crusty Crab</title>
+	<meta
+		name="description"
+		content="Learn more about Crusty Crab, the best seafood restaurant in town. Our commitment to quality and taste ensures an unforgettable dining experience!"
+	/>
+</svelte:head>
+
 <style>
 	.container {
 		display: flex;
@@ -28,6 +36,7 @@
 		padding: 2rem;
 		max-width: 800px;
 		margin: 0 auto;
+		min-height: calc(100vh - 12rem); /* Subtract header and footer height */
 	}
 
 	h1 {

@@ -1,6 +1,14 @@
 <script lang="ts">
 </script>
 
+<svelte:head>
+	<title>Welcome to Crusty Crab</title>
+	<meta
+		name="description"
+		content="Crusty Crab offers the finest seafood dining experience. Discover our delicious menu and order your favorite dishes now!"
+	/>
+</svelte:head>
+
 <div class="container">
 	<h1>Welcome to Crusty Crab</h1>
 	<p>Discover our delicious items and enjoy a unique dining experience.</p>
@@ -13,7 +21,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		min-height: calc(100vh - 4rem); /* Subtract header and footer height */
+		min-height: calc(100vh - 12rem); /* Subtract header and footer height */
 		padding: 2rem;
 		text-align: center;
 	}

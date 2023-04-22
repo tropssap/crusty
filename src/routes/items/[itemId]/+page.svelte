@@ -2,17 +2,43 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import type { Item } from '../item';
-	// import { getItemById } from '../../../lib/services/ItemAPI';
+	import { getItemById } from '../../../lib/services/ItemAPI';
 
+	import { addItemToCart } from '../../../lib/stores/cart';
 	let itemId: string;
 	let item: Item;
 
 	$: itemId = $page.params.itemId;
 
-	// onMount(async () => {
-	// 	item = await getItemById(itemId);
-	// });
+	onMount(async () => {
+		item = await getItemById(itemId);
+	});
 </script>
+
+<svelte:head>
+	{#if item}
+		<title>{item.name} - Crusty Crab</title>
+		<meta
+			name="description"
+			content="Discover our delicious {item.name}: {item.description}. Order now at Crusty Crab for an unforgettable seafood experience!"
+		/>
+		<!-- Open Graph Tags -->
+		<meta property="og:title" content="{item.name} - Crusty Crab" />
+		<meta
+			property="og:description"
+			content="Discover our delicious {item.name}: {item.description}. Order now at Crusty Crab for an unforgettable seafood experience!"
+		/>
+		<meta property="og:image" content={item.imageUrl} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={`https://your-domain.com/items/${itemId}`} />
+	{:else}
+		<title>Loading Item - Crusty Crab</title>
+		<meta
+			name="description"
+			content="Loading item details. Explore our mouthwatering menu and order your favorite seafood dishes from Crusty Crab!"
+		/>
+	{/if}
+</svelte:head>
 
 <main>
 	<div class="container">
@@ -21,7 +47,9 @@
 			<h2 class="item-name">{item.name}</h2>
 			<p class="item-price">${item.price.toFixed(2)}</p>
 			<p class="item-description">{item.description}</p>
-			<a href="/items">Back to Items</a>
+
+			<button on:click={() => addItemToCart(item)}>Add to Cart</button>
+			<!-- <a href="/items">Back to Items</a> -->
 		{:else}
 			<p>Loading...</p>
 		{/if}
@@ -34,6 +62,7 @@
 		flex-direction: column;
 		align-items: center;
 		padding: 2rem;
+		min-height: calc(100vh - 12rem); /* Subtract header and footer height */
 	}
 
 	.item-image {
@@ -65,7 +94,7 @@
 		text-align: center;
 	}
 
-	a {
+	button {
 		font-size: 1rem;
 		text-decoration: none;
 		color: #fff;
@@ -74,7 +103,7 @@
 		border-radius: 4px;
 	}
 
-	a:hover {
+	button:hover {
 		background-color: #555;
 	}
 </style>

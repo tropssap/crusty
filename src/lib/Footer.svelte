@@ -1,9 +1,6 @@
 <footer>
 	<p class="footer-text">
-		&copy; {new Date().getFullYear()} Crusty Crab. All rights reserved. | Site by
-		<a href="https://www.example.com" target="_blank" rel="noopener noreferrer" class="footer-link"
-			>Your Company</a
-		>
+		&copy; {new Date().getFullYear()} Crusty Crab. All rights reserved.
 	</p>
 </footer>
 
@@ -21,9 +18,5 @@
 		font-size: 0.9rem;
 	}
 
-	.footer-link {
-		color: #fff;
-		text-decoration: none;
-		margin-left: 0.5rem;
-	}
+	
 </style>
