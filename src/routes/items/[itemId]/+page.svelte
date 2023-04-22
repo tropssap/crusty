@@ -1,18 +1,16 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
 	import type { Item } from '../item';
-	import { getItemById } from '../../../lib/services/ItemAPI';
-
 	import { addItemToCart } from '../../../lib/stores/cart';
-	let itemId: string;
-	let item: Item;
 
-	$: itemId = $page.params.itemId;
+	import { getItemById } from '../../../lib/services/ItemAPI';
+	export let item: Item;
+	export let itemId: string;
 
-	onMount(async () => {
-		item = await getItemById(itemId);
-	});
+	export async function load({ fetch, params }) {
+		const itemId = params.itemId;
+		const item = await getItemById(itemId);
+		return { props: { item, itemId } };
+	}
 </script>
 
 <svelte:head>
