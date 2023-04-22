@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-cloudflare-workers';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import firebaseAdapter from 'svelte-adapter-firebase';
 
@@ -14,7 +14,9 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		// adapter: adapter()
 
-		adapter: firebaseAdapter()
+		// adapter: firebaseAdapter()
+		target: '#svelte',
+		adapter: adapter()
 	}
 };
 
