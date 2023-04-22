@@ -1,6 +1,6 @@
-import adapter from '@sveltejs/adapter-cloudflare-workers';
+import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/kit/vite';
-import firebaseAdapter from 'svelte-adapter-firebase';
+// import firebaseAdapter from 'svelte-adapter-firebase';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
