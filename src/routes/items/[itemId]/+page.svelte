@@ -1,16 +1,19 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 	import type { Item } from '../item';
-	import { addItemToCart } from '../../../lib/stores/cart';
-
+	// import { getItemById } from '../../../lib/services/ItemAPI';
 	import { getItemById } from '../../../lib/services/ItemAPI';
-	export let item: Item;
-	export let itemId: string;
-
-	export async function load({ fetch, params }) {
-		const itemId = params.itemId;
-		const item = await getItemById(itemId);
-		return { props: { item, itemId } };
-	}
+	import { addItemToCart } from '../../../lib/stores/cart';
+	let itemId: string;
+	let item: Item;
+	$: itemId = $page.params.itemId;
+	// onMount(async () => {
+	// 	item = await getItemById(itemId);
+	// });
+	onMount(async () => {
+		item = await getItemById(itemId);
+	});
 </script>
 
 <svelte:head>
@@ -28,7 +31,7 @@
 		/>
 		<meta property="og:image" content={item.imageUrl} />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content={`https://5d3fa16f.crusty.pages.dev/items/${itemId}`} />
+		<meta property="og:url" content={`https://your-domain.com/items/${itemId}`} />
 	{:else}
 		<title>Loading Item - Crusty Crab</title>
 		<meta
