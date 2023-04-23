@@ -28,7 +28,7 @@
 		/>
 		<meta property="og:image" content={item.imageUrl} />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content={`https://your-domain.com/items/${itemId}`} />
+		<meta property="og:url" content={`https://5d3fa16f.crusty.pages.dev/items/${itemId}`} />
 	{:else}
 		<title>Loading Item - Crusty Crab</title>
 		<meta
