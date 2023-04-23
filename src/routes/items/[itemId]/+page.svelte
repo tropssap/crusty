@@ -1,35 +1,17 @@
-<script context="module" lang="ts">
-	import type { Load, Page } from '@sveltejs/kit';
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 	import type { Item } from '../item';
 	import { getItemById } from '../../../lib/services/ItemAPI';
-  
-	export const load: Load = async ({ page }: { page: Page }) => {
-	  const itemId = page.params.itemId;
-	  const item: Item = await getItemById(itemId);
-  
-	  if (item) {
-		return {
-		  props: {
-			item
-		  }
-		};
-	  } else {
-		return {
-		  status: 404,
-		  error: new Error('Item not found')
-		};
-	  }
-	}
-  </script>
-  
-  <script lang="ts">
-	import { page } from '$app/stores';
 	import { addItemToCart } from '../../../lib/stores/cart';
-  
-	export let item: Item;
-	let itemId = $page.params.itemId;
-  </script>
-  
+	let itemId: string;
+	let item: Item;
+	$: itemId = $page.params.itemId;
+	onMount(async () => {
+		item = await getItemById(itemId);
+	});
+</script>
+
 
 <svelte:head>
 	{#if item}
