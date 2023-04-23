@@ -12,7 +12,6 @@
 	});
 </script>
 
-
 <svelte:head>
 	{#if item}
 		<title>{item.name} - Crusty Crab</title>
