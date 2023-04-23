@@ -4,17 +4,25 @@
 
 	let email = '';
 	let password = '';
+	let errorMessage = '';
 
 	async function handleSubmit(event: Event) {
 		event.preventDefault();
-		await loginUser(email, password);
-		goto('/');
+		try {
+			await loginUser(email, password);
+			goto('/');
+		} catch (error) {
+			errorMessage = (error as Error).message || 'An error occurred during authentication.';
+		}
 	}
 </script>
 
 <main>
 	<div class="form-container">
 		<h1>Login</h1>
+		{#if errorMessage}
+			<div class="error-message">{errorMessage}</div>
+		{/if}
 		<form on:submit={handleSubmit}>
 			<label for="email">Email:</label>
 			<input type="email" id="email" bind:value={email} required />
@@ -73,5 +81,10 @@
 	button:disabled {
 		background-color: #ccc;
 		cursor: not-allowed;
+	}
+
+	.error-message {
+		color: #d9534f;
+		margin-bottom: 1rem;
 	}
 </style>
