@@ -1,5 +1,5 @@
-<main>
-	<div class="container">
+<main style="background-image: url({"/images/bgimg.jpg"})">
+	<div class="container" >
 		<h1>About Crusty Crab</h1>
 		<p>
 			Crusty Crab is a family-owned restaurant that has been serving delicious seafood dishes since

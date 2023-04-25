@@ -52,33 +52,47 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: 1rem;
-		background-color: #333;
+		background-color: #233b6c;
 	}
 
 	.logo {
-		font-size: 1.5rem;
+		font-size: 2rem;
+		font-weight: bold;
 		color: #fff;
 		text-decoration: none;
 	}
 
 	.nav {
 		display: flex;
+		align-items: center;
 	}
 
 	.nav-item {
-		margin-left: 1rem;
+		margin-left: 1.5rem;
 		color: #fff;
 		text-decoration: none;
+		font-size: 1.2rem;
+	}
+
+	.nav-item:hover {
+		color: #f1c40f;
 	}
 
 	.nav-item.active {
 		font-weight: bold;
 	}
+
 	button {
-		background: none;
+		background: #f1c40f;
 		border: none;
 		cursor: pointer;
-		padding: 0;
-		margin-left: 1rem;
+		padding: 0.5rem;
+		margin-left: 1.5rem;
+		color: #fff;
+		font-size: 1.2rem;
+	}
+
+	button:hover {
+		background: #e67e22;
 	}
 </style>

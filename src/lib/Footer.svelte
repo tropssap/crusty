@@ -10,7 +10,12 @@
 		justify-content: center;
 		align-items: center;
 		padding: 1rem;
-		background-color: #333;
+		background-color: #233b6c;
+		color: #fff;
+		font-size: 0.9rem;
+		position: fixed;
+		bottom: 0;
+		width: 100%;
 	}
 
 	.footer-text {

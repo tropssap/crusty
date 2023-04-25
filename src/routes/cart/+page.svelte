@@ -21,7 +21,7 @@
 </script>
 
 <main>
-	<div class="container">
+	<div class="container" style="background-image: url({"/images/bgimg.jpg"})">
 		<h1>Cart</h1>
 		<ul>
 			{#each cartItems as item (item.id)}
