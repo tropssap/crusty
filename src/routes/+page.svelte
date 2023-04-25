@@ -9,7 +9,7 @@
 	/>
 </svelte:head>
 
-<div class="container" style="background-image: url({"/images/bgimg.jpg"})">
+<div class="container" style="background-image: url({'/images/bgimg.jpg'})">
 	<h1>Welcome to Crusty Crab</h1>
 	<p>Discover our delicious items and enjoy a unique dining experience.</p>
 	<a href="/items">View Items</a>

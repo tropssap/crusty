@@ -60,7 +60,7 @@
 	}
 
 	.item-price::before {
-		content: "$";
+		content: '$';
 	}
 
 	a {
@@ -74,7 +74,6 @@
 	}
 
 	a:hover {
-
 		color: #fff;
 		background-color: #e74c3c;
 	}
@@ -110,4 +109,3 @@
 		}
 	}
 </style>
-
